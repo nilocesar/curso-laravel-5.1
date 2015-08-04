@@ -99,8 +99,10 @@ class CarrosController extends Controller
 		});
 
 
-		
+		$titulo = 'Cache Carros';
 
-		return $carros;
+		return view('painel.carros.cache', compact('carros','titulo'));
+
+		//return $carros;
 	}
 }

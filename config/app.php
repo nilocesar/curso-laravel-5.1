@@ -146,6 +146,9 @@ return [
 
         'Illuminate\Html\HtmlServiceProvider',
 
+
+        Barryvdh\Debugbar\ServiceProvider::class,
+
     ],
 
     /*
