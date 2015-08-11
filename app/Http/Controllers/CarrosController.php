@@ -6,6 +6,7 @@ use App\Models\Painel\Carro;
 use Illuminate\Http\Request;
 use Validator;
 use Cache;
+use Crypt;
 
 class CarrosController extends Controller
 {
@@ -99,7 +100,7 @@ class CarrosController extends Controller
 		});
 
 
-		$titulo = 'Cache Carros';
+		$titulo = Crypt::encrypt('Cache Carros');
 
 		return view('painel.carros.cache', compact('carros','titulo'));
 
