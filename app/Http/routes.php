@@ -91,4 +91,6 @@ Route::get('produto/{idProd}', 'ProdutoController@show');
 Route::get('produto/edit/{idProd}', 'ProdutoController@edit');
 
 
-Route::controller('/carros', 'CarrosController');
+Route::controller('carros', 'CarrosController');
+
+Route::controller('users', 'UserController');
