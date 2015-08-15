@@ -27,9 +27,15 @@ class UserController extends Controller {
      */
     public function getIndex() {
         $titulo = 'Usuários | Curso de Laravel 5';
-        $users = User::paginate(5);
+        $users  = User::paginate(5);
+        $status = "";
 
-        return view('painel.users.index', ['users' => $users, 'titulo' => $titulo]);
+       if ($this->request->session()->has('status')) 
+       {
+            $status = $this->request->session()->get('status');
+        }
+
+        return view('painel.users.index', ['users' => $users, 'titulo' => $titulo, 'status'=> $status]);
     }
 
     /**
@@ -54,6 +60,12 @@ class UserController extends Controller {
         $dadosForm['password'] = Hash::make($dadosForm['password']);
 
         $this->user->create($dadosForm)->save();
+
+        $status = "Usuário ".$dadosForm['name']. " foi criado com sucesso!";
+
+        $this->request->session()->flash('status',$status);
+
+       
 
         return redirect('users');
     }
@@ -92,20 +104,6 @@ class UserController extends Controller {
         $this->user->where('id',$id)->update($dadosForm);
         
         return redirect('users');
-    }
-
-    public function getVerificaHash($id,$senha)
-    {
-        $user       = $this->user->find($id);
-        $password   = $this->user->password;
-
-        if (Hash::check($senha,  $password)) 
-        {
-            echo "OK! Hash validado";
-        } else {
-            echo "Ops! Confira seus dados";
-        }
-
     }
 
 

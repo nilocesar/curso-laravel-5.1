@@ -5,6 +5,10 @@
 
 <h1>Listagem dos usuários do painel ({{$users->total()}})</h1>
 
+@if($status != "")
+{{$status}}
+@endif
+
 <table class="table table-bordered">
     <tr>
         <th>Nome</th>
