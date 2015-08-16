@@ -108,3 +108,5 @@ Route::get('sessao/exibir', function(){
 
 	return $msg;
 });
+
+Route::controller('collection', 'CollectionController');
