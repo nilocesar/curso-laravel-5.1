@@ -110,3 +110,13 @@ Route::get('sessao/exibir', function(){
 });
 
 Route::controller('collection', 'CollectionController');
+
+
+Route::get('email', function(){
+	
+	Mail::raw('Mensagem de testo puro', function ($m) {
+    	 $m->to('querotestar.isso@yahoo.com.br','João')->subject('Enviando E-mails pelo Laravel');
+	});
+
+
+});

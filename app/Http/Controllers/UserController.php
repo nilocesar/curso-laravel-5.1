@@ -9,6 +9,7 @@ use App\User;
 use Validator;
 use Crypt;
 use Hash;
+use Mail;
 
 class UserController extends Controller {
 
@@ -65,7 +66,12 @@ class UserController extends Controller {
 
         $this->request->session()->flash('status',$status);
 
-       
+
+
+       $this->disparaEmail($dadosForm['name']);
+
+
+
 
         return redirect('users');
     }
@@ -104,6 +110,17 @@ class UserController extends Controller {
         $this->user->where('id',$id)->update($dadosForm);
         
         return redirect('users');
+    }
+
+    private function disparaEmail($nome)
+    {
+
+        Mail::send('emails.novousuario', ['nome' => $nome], function ($m) {
+            $m->to('querotestar.isso@yahoo.com.br', 'Fulano')
+                ->subject('Novo usuário Cadastrado')
+                ->attach("http://www.especializati.com.br/assets/portal/imgs/logo.png");;
+        });
+
     }
 
 

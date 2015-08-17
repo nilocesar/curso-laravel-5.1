@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => null, 'name' => null],
+    'from' => ['address' => 'contato@especializati.com.br', 'name' => 'EspecializaTI'],
 
     /*
     |--------------------------------------------------------------------------
