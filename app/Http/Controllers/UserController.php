@@ -68,7 +68,7 @@ class UserController extends Controller {
 
 
 
-       $this->disparaEmail($dadosForm['name']);
+       $this->disparaEmailFila($dadosForm['name']);
 
 
 
@@ -105,7 +105,8 @@ class UserController extends Controller {
                             ->withInput();
         }
         $dadosForm = $this->request->except('_token');
-        $dadosForm['password'] = Hash::make($dadosForm['password']);
+        //$dadosForm['password'] = Hash::make($dadosForm['password']);
+        $dadosForm['password'] = bcrypt($dadosForm['password']);
 
         $this->user->where('id',$id)->update($dadosForm);
         
@@ -116,6 +117,18 @@ class UserController extends Controller {
     {
 
         Mail::send('emails.novousuario', ['nome' => $nome], function ($m) {
+            $m->to('querotestar.isso@yahoo.com.br', 'Fulano')
+                ->subject('Novo usuário Cadastrado')
+                ->attach("http://www.especializati.com.br/assets/portal/imgs/logo.png");;
+        });
+
+    }
+
+
+    private function disparaEmailFila($nome)
+    {
+
+        Mail::queue('emails.novousuario', ['nome' => $nome], function ($m) {
             $m->to('querotestar.isso@yahoo.com.br', 'Fulano')
                 ->subject('Novo usuário Cadastrado')
                 ->attach("http://www.especializati.com.br/assets/portal/imgs/logo.png");;
