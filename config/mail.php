@@ -54,7 +54,11 @@ return [
     |
     */
 
+<<<<<<< HEAD
     'from' => ['address' => 'carlos@especializati.com.br', 'name' => 'EspecializaTi'],
+=======
+    'from' => ['address' => 'contato@especializati.com.br', 'name' => 'EspecializaTI'],
+>>>>>>> origin/master
 
     /*
     |--------------------------------------------------------------------------

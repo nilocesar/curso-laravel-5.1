@@ -27,4 +27,36 @@ Route::get('resetar-senha/{token}', 'Auth\PasswordController@getReset');
 Route::post('resetar-senha/', 'Auth\PasswordController@postReset');
 
 
+<<<<<<< HEAD
 Route::controller('/', 'Site\HomeController');
+=======
+Route::controller('carros', 'CarrosController');
+
+Route::controller('users', 'UserController');
+
+Route::get('sessao/gravar', function(){
+	
+	echo "GRAVAR: Gravando sessão";
+	session(['msg'=>'Gravando sessão no Laravel!']);
+	
+});
+
+Route::get('sessao/exibir', function(){
+	
+	$msg = session('msg');
+
+	return $msg;
+});
+
+Route::controller('collection', 'CollectionController');
+
+
+Route::get('email', function(){
+	
+	Mail::raw('Mensagem de testo puro', function ($m) {
+    	 $m->to('querotestar.isso@yahoo.com.br','João')->subject('Enviando E-mails pelo Laravel');
+	});
+
+
+});
+>>>>>>> origin/master
