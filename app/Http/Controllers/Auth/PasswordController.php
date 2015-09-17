@@ -7,6 +7,15 @@ use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class PasswordController extends Controller
 {
+    protected $redirectTo = '/painel';
+    
+    /**
+     *
+     * @var String $subject = Msg para assunto de recupear senha 
+     */
+    protected $subject = 'Recuperar Senha';
+
+
     /*
     |--------------------------------------------------------------------------
     | Password Reset Controller

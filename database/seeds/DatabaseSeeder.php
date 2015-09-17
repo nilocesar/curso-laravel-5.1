@@ -18,6 +18,6 @@ class DatabaseSeeder extends Seeder
 
         Model::reguard();
 
-        $this->call('CarrosSeeder');
+        $this->call('UsuarioSeeder');
     }
 }
