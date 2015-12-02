@@ -143,18 +143,10 @@ return [
         App\Providers\AppServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
-<<<<<<< HEAD
         Illuminate\Html\HtmlServiceProvider::class,
-        
         App\Providers\LogServiceProvider::class,
-=======
         'Illuminate\Html\HtmlServiceProvider',
-
-
         Barryvdh\Debugbar\ServiceProvider::class,
-
->>>>>>> origin/master
     ],
 
     /*

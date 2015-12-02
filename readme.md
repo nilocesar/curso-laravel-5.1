@@ -1,27 +1,21 @@
-## Laravel PHP Framework
+## Curso Laravel 5.1 - EspecializaTI
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+Repositório para os arquivos do Curso de Laravel 5.1 do [EspecializaTI](http://www.especializati.com.br).
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+Passo a passo 
+===========
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+* Clone este repositório para a pasta do seu servidor web :
 
-## Official Documentation
+	- Exemplo: git clone https://github.com/EspecializaTi/curso-laravel-5.1.git /var/www/curso-laravel5 
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+* No terminal, acesse o diretório recém criado e execute o comando "composer install" para que o composer possa baixar e instalar todas as dependências do projeto.
+	- Exemplo: cd /var/www/curso-laravel5
+			   sudo composer install
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+* Após a instalação das dependências, crie o arquivo .env na raiz do projeto e o configure com os dados do ambiente de produção ( Banco de dados, envio de e-mails e etc... ).
 
-## Security Vulnerabilities
+* Agora temos que migrar as tabelas do banco de dados. No terminal, acesse o diretório da aplicação e rode o comando: php artisan migrate .
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-### License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+* Não se esqueça de gerar a chave de criptografia ( APP_KEY ) da aplicação. Caso ainda não tenha configurado no seu arquivo .env, você pode fazer isso de forma simples e rápida com o comando: php artisan key:generate .

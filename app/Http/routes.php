@@ -27,9 +27,8 @@ Route::get('resetar-senha/{token}', 'Auth\PasswordController@getReset');
 Route::post('resetar-senha/', 'Auth\PasswordController@postReset');
 
 
-<<<<<<< HEAD
 Route::controller('/', 'Site\HomeController');
-=======
+
 Route::controller('carros', 'CarrosController');
 
 Route::controller('users', 'UserController');
@@ -59,4 +58,3 @@ Route::get('email', function(){
 
 
 });
->>>>>>> origin/master
